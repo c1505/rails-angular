@@ -18,6 +18,8 @@ gem 'angular-rails-templates'
 
 gem 'responders'
 
+gem 'angular_rails_csrf', '1.0.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

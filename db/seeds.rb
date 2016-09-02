@@ -16,3 +16,19 @@ end
   description = Faker::Hipster.paragraph(3)
   Ticket.create(title: title, description: description, status: "in-progress", category: "bug")
 end
+
+ # //    var o = [
+ # //  {id: 1,
+ # //   title: 'Ticket 1',
+ # //   description: "can't login",
+ # //   status: "Complete",
+ # //   name: "Bob",
+ # //   email: "Bob@gmail.com"
+ # // },{id: 2,
+ # //   title: 'Ticket ',
+ # //   description: "back button broken",
+ # //   status: "In Progress",
+ # //   name: "Fred",
+ # //   email: "Fred@gmail.com"
+ # // },
+ # // ];

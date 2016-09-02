@@ -53,25 +53,15 @@ function($stateProvider, $urlRouterProvider) {
 .factory('tickets', [
   '$http',
   function($http){
-    // var o = [];
-    var o = [
-  {id: 1,
-   title: 'Ticket 1',
-   description: "can't login",
-   status: "Complete",
-   name: "Bob",
-   email: "Bob@gmail.com"
- },{id: 2,
-   title: 'Ticket ',
-   description: "back button broken",
-   status: "In Progress",
-   name: "Fred",
-   email: "Fred@gmail.com"
- },
- ];
+    var o = [];
     o.getAll = function() {
       return $http.get('/tickets.json').success(function(data){
         angular.copy(data, o);
+      });
+    };
+    o.create = function(ticket) {
+      return $http.post('/tickets.json', ticket).success(function(data){
+        o.push(data);
       });
     };
     return o;
@@ -83,7 +73,7 @@ function($scope, tickets){
     $scope.tickets = tickets;
     $scope.addPost = function() {
         if(!$scope.title || $scope.title === '') {return; }
-        $scope.tickets.push({
+        tickets.create({
             title: $scope.title,
             description: $scope.description,
             status: "Submitted"
