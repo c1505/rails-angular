@@ -1,0 +1,22 @@
+<body ng-app="supportTickets" ng-controller="MainCtrl">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-3">
+
+      <div class="page-header">
+        <h1>Support Tickets</h1>
+      </div>
+
+      <div class="table table-striped" ng-repeat="ticket in tickets | orderBy:'-upvotes'">
+        <div  style="font-size:14px; margin-left:10px;">
+            Title: {{ticket.title}} --
+            Description: {{ticket.description}} --
+            Name: {{ticket.name}} -- 
+            Email: {{ticket.email}} --
+            Status: {{ticket.status}} 
+            <!-- should be able to filter on status -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>

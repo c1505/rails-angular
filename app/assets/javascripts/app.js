@@ -22,6 +22,11 @@ function($stateProvider, $urlRouterProvider) {
       url: '/create',
       templateUrl: 'tickets/_create.html',
       controller: 'MainCtrl'
+    })
+    .state('tickets', {
+      url: '/tickets',
+      templateUrl: 'tickets/_ticketsIndex.html',
+      controller: 'MainCtrl'
     });
 
   // $urlRouterProvider.otherwise('home');
@@ -38,17 +43,27 @@ function($stateProvider, $urlRouterProvider) {
 function($scope, tickets){
     $scope.tickets = tickets.tickets;
     $scope.tickets = [
-  {title: 'Ticket 1', description: "computber be broke"},
+  {title: 'Ticket 1',
+   description: "can't login",
+   status: "Complete",
+   name: "Bob",
+   email: "Bob@gmail.com"
+ },{title: 'Ticket ',
+   description: "back button broken",
+   status: "In Progress",
+   name: "Fred",
+   email: "Fred@gmail.com"
+ },
 ];
     $scope.addPost = function() {
         if(!$scope.title || $scope.title === '') {return; }
         $scope.tickets.push({
             title: $scope.title,
-            upvotes: 0,
-            description: $scope.description
+            description: $scope.description,
+            status: "Submitted"
         });
         $scope.title = '';
         $scope.description = '';
-        
+        $scope.status = '';
     };
 }]);

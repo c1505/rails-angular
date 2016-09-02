@@ -3,14 +3,17 @@
     <div class="col-md-6 col-md-offset-3">
 
       <div class="page-header">
-        <h1>Support Tickets</h1>
+        <h1>My Tickets</h1>
       </div>
 
       <div ng-repeat="ticket in tickets | orderBy:'-upvotes'">
-        <span style="font-size:20px; margin-left:10px;">
+        <div id="box" style="font-size:20px; margin-left:10px;">
             Title: {{ticket.title}} --
+            <br>
             Description: {{ticket.description}}
-        </span>
+            <br>
+            Status: {{ticket.status}}
+        </div>
       </div>
 
       <form ng-submit="addPost()"

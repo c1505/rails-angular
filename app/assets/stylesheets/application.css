@@ -14,3 +14,10 @@
  *= require_tree .
  *= require_self
  */
+
+#box {
+    width: 300px;
+    border: 10px solid green;
+    padding: 25px;
+    margin: 25px;
+}
