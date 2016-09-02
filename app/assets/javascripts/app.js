@@ -26,7 +26,12 @@ function($stateProvider, $urlRouterProvider) {
     .state('tickets', {
       url: '/tickets',
       templateUrl: 'tickets/_ticketsIndex.html',
-      controller: 'MainCtrl'
+      controller: 'MainCtrl',
+      resolve: {
+        ticketPromise: ['tickets', function(tickets){
+          return tickets.getAll();
+        }]
+      }
     })
     .state('tickets.detail', {
       url: '/{ticketId:[0-9]{1,4}}',
@@ -45,7 +50,10 @@ function($stateProvider, $urlRouterProvider) {
 
   // $urlRouterProvider.otherwise('home');
 }])
-.factory('tickets', [function(){
+.factory('tickets', [
+  '$http',
+  function($http){
+    // var o = [];
     var o = [
   {id: 1,
    title: 'Ticket 1',
@@ -61,6 +69,11 @@ function($stateProvider, $urlRouterProvider) {
    email: "Fred@gmail.com"
  },
  ];
+    o.getAll = function() {
+      return $http.get('/tickets.json').success(function(data){
+        angular.copy(data, o);
+      });
+    };
     return o;
 }])
 .controller('MainCtrl', [

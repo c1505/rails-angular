@@ -1,6 +1,12 @@
+Details:
+
 Rails and Angular ticketing application.
 Bower to manage front end dependencies
 Angular, Angular ui-router, bootstrap.
+
+Setup:
+clone
+run rake db:seed for some fake data
 
 Customers:
 -Create support requests
