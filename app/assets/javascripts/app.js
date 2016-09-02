@@ -34,9 +34,6 @@ function($stateProvider, $urlRouterProvider) {
       templateUrl: 'tickets/_ticketsDetail.html',
       controller: 'MainCtrl',
       resolve: {
-        // tickets: function($http, $stateparams) {
-        //   return "this";
-        // }
         tickets: ['tickets',
           function( tickets){
             return tickets[0];
@@ -63,7 +60,7 @@ function($stateProvider, $urlRouterProvider) {
         });
       }]
     });
-  // $urlRouterProvider.otherwise('home');
+  $urlRouterProvider.otherwise('register');
 }])
 .factory('tickets', [
   '$http',

@@ -2,11 +2,15 @@ Details:
 
 Rails and Angular ticketing application.
 Bower to manage front end dependencies
-Angular, Angular ui-router, bootstrap.
 
 Setup:
+Run these commands in the terminal:
 
-run rake db:seed for some fake data
+bundle install
+bower install
+rake db:seed 
+rails s 
+
 
 Customers:
 -Create support requests
@@ -20,5 +24,5 @@ Support Agents:
 
 * Ruby version 2.2.1
 
-* Rails version
+* Rails version 4.2.6
 

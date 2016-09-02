@@ -34,6 +34,11 @@
             Description: {{ticket.description}}
             <br>
             Status: {{ticket.status}}
+            <br>
+            <strong>Comments: </strong>
+            <div ng-repeat="comment in ticket.comments">
+              {{ comment.body }}
+            </div>
         </div>
       </div>
 

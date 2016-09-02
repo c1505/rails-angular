@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create(email: email@email.com, password: 'password')
 5.times do
   User.create(email: Faker::Internet.email, password: 'password')
 end
@@ -22,4 +23,8 @@ end
   ticket = Ticket.create(title: title, description: description, status: "in-progress", category: "bug")
   ticket.user_id = 2
   ticket.save
+end
+
+5.times do
+  comment = Comment.create(body: Faker::Hipster.paragraph(1), ticket_id: 1, user_id: 1 )
 end
