@@ -1,4 +1,4 @@
-angular.module('supportTickets', ['ui.router'])
+angular.module('supportTickets', ['ui.router', 'templates'])
 .config([
 '$stateProvider',
 '$urlRouterProvider',
@@ -8,6 +8,10 @@ function($stateProvider, $urlRouterProvider) {
       url: '/home',
       templateUrl: '/home.html',
       controller: 'MainCtrl'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'home/_login.html'
     });
   // $urlRouterProvider.otherwise('home');
 }])
