@@ -13,24 +13,6 @@
     <div class="col-md-6 col-md-offset-3">
       <div ng-include="'home/_nav.html'"></div>
     </div>
-  <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Do Next</a>
-          </div>
-          <div id="navbar">
-            <ul class="nav navbar-nav">
-              <li><a href="#/register">register</a></li>
-              <li><a href="#/login">login</a></li>
-              <li><a href="#/create">create </a></li>
-              <li><a href="#/tickets">tickets </a></li>
-              <li ng-show="!user.id"><a ng-href="#/sign_in">Sign in</a></li> 
-              <li ng-show="!user.id"><a ng-href="#/register">Register</a></li> 
-              <li ng-show="user.id"><a ng-click='signOut()'>Sign out</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
     <div ui-view></div>  
   </div>
 

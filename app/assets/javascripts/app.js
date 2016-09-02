@@ -9,15 +9,6 @@ function($stateProvider, $urlRouterProvider) {
       templateUrl: '/home.html',
       controller: 'MainCtrl'
     })
-    .state('login', {
-      url: '/login',
-      templateUrl: 'home/_login.html'
-    })
-    .state('register', {
-      url: '/register',
-      templateUrl: 'home/_register.html',
-      controller: 'MainCtrl'
-    })
     .state('create', {
       url: '/create',
       templateUrl: 'tickets/_create.html',
@@ -46,8 +37,17 @@ function($stateProvider, $urlRouterProvider) {
             return tickets[0];
           }]
       }
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'auth/_login.html',
+      controller: 'AuthCtrl'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'auth/_register.html',
+      controller: 'AuthCtrl'
     });
-
   // $urlRouterProvider.otherwise('home');
 }])
 .factory('tickets', [
