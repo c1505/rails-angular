@@ -1,4 +1,4 @@
-angular.module('supportTickets', ['ui.router', 'templates'])
+angular.module('supportTickets', ['ui.router', 'templates', 'Devise'])
 .config([
 '$stateProvider',
 '$urlRouterProvider',
