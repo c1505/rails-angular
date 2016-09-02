@@ -29,35 +29,24 @@ function($stateProvider, $urlRouterProvider) {
       controller: 'MainCtrl'
     })
     .state('tickets.detail', {
-      // url: 'tickets/:id',
       url: '/{ticketId:[0-9]{1,4}}',
-      template: 'tickets/_ticketsDetail.html',
+      templateUrl: 'tickets/_ticketsDetail.html',
       controller: 'MainCtrl',
-      // resolve: {
-      //   // tickets: function($http, $stateparams) {
-      //   //   return "this";
-      //   // }
-      //   tickets: ['tickets',
-      //     function( tickets){
-      //       return tickets.all();
-      //     }]
-      // }
+      resolve: {
+        // tickets: function($http, $stateparams) {
+        //   return "this";
+        // }
+        tickets: ['tickets',
+          function( tickets){
+            return tickets[0];
+          }]
+      }
     });
 
   // $urlRouterProvider.otherwise('home');
 }])
 .factory('tickets', [function(){
-    var o = {
-        tickets: []
-    };
-    return o;
-}])
-.controller('MainCtrl', [
-'$scope',
-'tickets',
-function($scope, tickets){
-    $scope.tickets = tickets.tickets;
-    $scope.tickets = [
+    var o = [
   {id: 1,
    title: 'Ticket 1',
    description: "can't login",
@@ -71,7 +60,14 @@ function($scope, tickets){
    name: "Fred",
    email: "Fred@gmail.com"
  },
-];
+ ];
+    return o;
+}])
+.controller('MainCtrl', [
+'$scope',
+'tickets',
+function($scope, tickets){
+    $scope.tickets = tickets;
     $scope.addPost = function() {
         if(!$scope.title || $scope.title === '') {return; }
         $scope.tickets.push({
@@ -82,5 +78,10 @@ function($scope, tickets){
         $scope.title = '';
         $scope.description = '';
         $scope.status = '';
+    };
+    $scope.addResponse = function(ticket) {
+      $scope.tickets.push({
+        response: "$scope.response"
+      });
     };
 }]);

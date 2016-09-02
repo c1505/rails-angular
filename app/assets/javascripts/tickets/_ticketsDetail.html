@@ -1,0 +1,14 @@
+<h2>Ticket Detail</h2>
+i want to be able to click on one, then the detail shows and there is a dialog box and a button to add a response and a dropdown to select the status
+<form ng-submit="addResponse(tickets)"
+  style="margin-top:30px;">
+  <h3>Respond to ticket {{ tickets.title }}</h3>
+
+  <div class="form-group">
+    <input type="text"
+      class="form-control"
+      placeholder="Response"
+      ng-model="title"></input>
+  </div>
+  <button type="submit" class="btn btn-primary">Post</button>
+</form>
