@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
   <title>Support Tickets</title>
   
@@ -7,43 +7,25 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-
-<div ui-view></div>  
-<body ng-app="supportTickets" ng-controller="MainCtrl">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-
-      <div class="page-header">
-        <h1>Support Tickets</h1>
-      </div>
-
-      <div ng-repeat="ticket in tickets | orderBy:'-upvotes'">
-        <span style="font-size:20px; margin-left:10px;">
-            Title: {{ticket.title}} --
-            Description: {{ticket.description}}
-        </span>
-      </div>
-
-      <form ng-submit="addPost()"
-        style="margin-top:30px;">
-        <h3>Add a new ticket</h3>
-
-        <div class="form-group">
-          <input type="text"
-            class="form-control"
-            placeholder="Title"
-            ng-model="title"></input>
-        </div>
-        <div class="form-group">
-          <input type="text"
-          class="form-control"
-          placeholder="Description"
-          ng-model="description"></input>
-        </div>
-        <button type="submit" class="btn btn-primary">Post</button>
-      </form>
-
-    </div>
+  <div ng-app="supportTickets" ng-controller="MainCtrl">
+  <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Do Next</a>
+          </div>
+          <div id="navbar">
+            <ul class="nav navbar-nav">
+              <li><a href="#/register">register</a></li>
+              <li><a href="#/login">login</a></li>
+              <li><a href="#/create">create </a></li>
+              <li ng-show="!user.id"><a ng-href="#/sign_in">Sign in</a></li> 
+              <li ng-show="!user.id"><a ng-href="#/register">Register</a></li> 
+              <li ng-show="user.id"><a ng-click='signOut()'>Sign out</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    <div ui-view></div>  
   </div>
-</body>
+
 </html>

@@ -12,7 +12,18 @@ function($stateProvider, $urlRouterProvider) {
     .state('login', {
       url: '/login',
       templateUrl: 'home/_login.html'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'home/_register.html',
+      controller: 'MainCtrl'
+    })
+    .state('create', {
+      url: '/create',
+      templateUrl: 'tickets/_create.html',
+      controller: 'MainCtrl'
     });
+
   // $urlRouterProvider.otherwise('home');
 }])
 .factory('tickets', [function(){
