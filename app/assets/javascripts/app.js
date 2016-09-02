@@ -11,33 +11,29 @@ function($stateProvider, $urlRouterProvider) {
     });
   // $urlRouterProvider.otherwise('home');
 }])
-.factory('posts', [function(){
+.factory('tickets', [function(){
     var o = {
-        posts: []
+        tickets: []
     };
     return o;
 }])
 .controller('MainCtrl', [
 '$scope',
-'posts',
-function($scope, posts){
-    $scope.posts = posts.posts;
-    $scope.posts = [
-  {title: 'post 1', upvotes: 5},
-  {title: 'post 2', upvotes: 2},
-  {title: 'post 3', upvotes: 15},
-  {title: 'post 4', upvotes: 9},
-  {title: 'post 5', upvotes: 4}
+'tickets',
+function($scope, tickets){
+    $scope.tickets = tickets.tickets;
+    $scope.tickets = [
+  {title: 'Ticket 1', description: "computber be broke"},
 ];
     $scope.addPost = function() {
         if(!$scope.title || $scope.title === '') {return; }
-        $scope.posts.push({
+        $scope.tickets.push({
             title: $scope.title,
             upvotes: 0,
-            link: $scope.link
+            description: $scope.description
         });
         $scope.title = '';
-        $scope.link = '';
+        $scope.description = '';
         
     };
 }]);
