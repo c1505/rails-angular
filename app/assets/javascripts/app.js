@@ -94,9 +94,9 @@ function($scope, tickets){
         $scope.description = '';
         $scope.status = '';
     };
-    $scope.addResponse = function(ticket) {
-      $scope.tickets.push({
-        response: "$scope.response"
+    $scope.addComment = function(ticket) {
+      ticket.comments.push({
+        body: "new comment"
       });
     };
 }]);
