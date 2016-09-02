@@ -13,10 +13,12 @@
             Name: {{ticket.name}} -- 
             Email: {{ticket.email}} --
             Status: {{ticket.status}} 
+            <a ui-sref="tickets.detail({contactId:contact.id})">{{ticket.title}}</a>
             <!-- should be able to filter on status -->
         </div>
       </div>
-
+      <div ui-view></div>
     </div>
   </div>
 </body>
+

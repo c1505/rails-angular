@@ -27,6 +27,21 @@ function($stateProvider, $urlRouterProvider) {
       url: '/tickets',
       templateUrl: 'tickets/_ticketsIndex.html',
       controller: 'MainCtrl'
+    })
+    .state('tickets.detail', {
+      // url: 'tickets/:id',
+      url: '/{ticketId:[0-9]{1,4}}',
+      template: 'tickets/_ticketsDetail.html',
+      controller: 'MainCtrl',
+      // resolve: {
+      //   // tickets: function($http, $stateparams) {
+      //   //   return "this";
+      //   // }
+      //   tickets: ['tickets',
+      //     function( tickets){
+      //       return tickets.all();
+      //     }]
+      // }
     });
 
   // $urlRouterProvider.otherwise('home');
@@ -43,12 +58,14 @@ function($stateProvider, $urlRouterProvider) {
 function($scope, tickets){
     $scope.tickets = tickets.tickets;
     $scope.tickets = [
-  {title: 'Ticket 1',
+  {id: 1,
+   title: 'Ticket 1',
    description: "can't login",
    status: "Complete",
    name: "Bob",
    email: "Bob@gmail.com"
- },{title: 'Ticket ',
+ },{id: 2,
+   title: 'Ticket ',
    description: "back button broken",
    status: "In Progress",
    name: "Fred",
