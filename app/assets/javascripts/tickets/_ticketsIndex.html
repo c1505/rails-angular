@@ -8,12 +8,11 @@
 
       <div class="table table-striped" ng-repeat="ticket in tickets | orderBy:'-upvotes'">
         <div  style="font-size:14px; margin-left:10px;">
-            Title: {{ticket.title}} --
-            Description: {{ticket.description}} --
-            Name: {{ticket.name}} -- 
-            Email: {{ticket.email}} --
-            Status: {{ticket.status}} -- 
-            Response: {{ticket.response}} --
+            <strong>Title:</strong> {{ticket.title}} --
+            <strong>Description:</strong> {{ticket.description}} --
+            <strong>Email:</strong> {{ticket.user.email}} --
+            <strong>Status:</strong> {{ticket.status}} -- 
+            <strong>Response:</strong> {{ticket.response}} --
             <a ui-sref="tickets.detail({contactId:contact.id})">{{ticket.title}}</a>
             <!-- should be able to filter on status -->
         </div>

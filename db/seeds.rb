@@ -6,29 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 5.times do
+  User.create(email: Faker::Internet.email, password: 'password')
+end
+5.times do
   title = Faker::App.name
   description = Faker::Hipster.paragraph(3)
-  Ticket.create(title: title, description: description, status: "completed", category: "bug")
+  ticket = Ticket.create(title: title, description: description, status: "completed", category: "bug")
+  ticket.user_id = 1
+  ticket.save
 end
 
 5.times do
   title = Faker::App.name
   description = Faker::Hipster.paragraph(3)
-  Ticket.create(title: title, description: description, status: "in-progress", category: "bug")
+  ticket = Ticket.create(title: title, description: description, status: "in-progress", category: "bug")
+  ticket.user_id = 2
+  ticket.save
 end
-
- # //    var o = [
- # //  {id: 1,
- # //   title: 'Ticket 1',
- # //   description: "can't login",
- # //   status: "Complete",
- # //   name: "Bob",
- # //   email: "Bob@gmail.com"
- # // },{id: 2,
- # //   title: 'Ticket ',
- # //   description: "back button broken",
- # //   status: "In Progress",
- # //   name: "Fred",
- # //   email: "Fred@gmail.com"
- # // },
- # // ];

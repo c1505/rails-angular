@@ -6,15 +6,7 @@
         <h1>My Tickets</h1>
       </div>
 
-      <div ng-repeat="ticket in tickets | orderBy:'-upvotes'">
-        <div id="box" style="font-size:20px; margin-left:10px;">
-            Title: {{ticket.title}} --
-            <br>
-            Description: {{ticket.description}}
-            <br>
-            Status: {{ticket.status}}
-        </div>
-      </div>
+      
 
       <form ng-submit="addPost()"
         style="margin-top:30px;">
@@ -34,6 +26,16 @@
         </div>
         <button type="submit" class="btn btn-primary">Post</button>
       </form>
+
+      <div ng-repeat="ticket in tickets | orderBy:'-upvotes'">
+        <div id="box" style="font-size:20px; margin-left:10px;">
+            Title: {{ticket.title}} --
+            <br>
+            Description: {{ticket.description}}
+            <br>
+            Status: {{ticket.status}}
+        </div>
+      </div>
 
     </div>
   </div>

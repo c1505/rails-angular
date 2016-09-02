@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'application#angular'
 
-  resources :tickets, only: [:create, :index, :show]
+  resources :tickets, only: [:create, :index, :show] do
+    resources :comments, only: [:show, :create]
+  end
+
 
 
 

@@ -12,7 +12,12 @@ function($stateProvider, $urlRouterProvider) {
     .state('create', {
       url: '/create',
       templateUrl: 'tickets/_create.html',
-      controller: 'MainCtrl'
+      controller: 'MainCtrl',
+      resolve: {
+      ticketPromise: ['tickets', function(tickets){
+          return tickets.getAll();
+        }]
+      }
     })
     .state('tickets', {
       url: '/tickets',
