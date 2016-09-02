@@ -19,34 +19,17 @@
             <div ng-repeat="comment in ticket.comments">
               {{ comment.body }}
             </div>
-                <form ng-submit="addComment(ticket)"
-                style="margin-top:30px;">
+
                 <h3>Add Comment</h3>
 
-                <div class="form-group">
-                  <input type="text"
-                  class="form-control"
-                  placeholder="Comment"
-                  ng-model="new_comment"></input>
-                </div>
-                <button type="submit" class="btn btn-primary">Post</button>
-              </form>
+
+
+              <input type="text" ng-model="ticket.new_comment"/>
+              <button ng-click="submit(ticket)">Edit</button>
         </div>
       </div>
       <div ui-view></div>
     </div>
   </div>
 </body>
-
-      <form ng-submit="addComment()"
-        style="margin-top:30px;">
-        <h3>Add Comment</h3>
-
-        <div class="form-group">
-          <input type="text"
-          class="form-control"
-          placeholder="Description"
-          ng-model="description"></input>
-        </div>
-        <button type="submit" class="btn btn-primary">Post</button>
-      </form>
+      

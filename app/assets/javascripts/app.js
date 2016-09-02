@@ -96,7 +96,8 @@ function($scope, tickets){
     };
     $scope.addComment = function(ticket) {
       ticket.comments.push({
-        body: "new comment"
+        body: ticket.new_comment 
+        // FIX ME
       });
     };
 }]);
